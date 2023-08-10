@@ -81,7 +81,7 @@ function ShowNews() {
       }catch(err){
   
         if(!err.response){ //it will be internet error
-          failedToast(err.response.message);
+          failedToast(err.message);
           removeToast(1500)
           return;
         }
