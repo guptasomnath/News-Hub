@@ -1,0 +1,19 @@
+.showNewsListDiv{
+    width: 100%;
+    height: calc(var(--fullPageHeight) - var(--headerHeight)) ;
+    overflow: scroll;
+    padding: 25px 35px 0 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+@media screen and (max-width: 710px) {
+    .showNewsListDiv{  
+        padding: 12px 12px 0 12px;
+    }
+}

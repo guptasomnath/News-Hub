@@ -1,0 +1,172 @@
+.headerDiv{
+    height: var(--headerHeight);
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+h1{
+    font-size: 23px;
+}
+
+.rightLayout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+.favIconDiv{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: relative;
+    cursor: pointer;
+    margin: 0 25px 0 15px;
+}
+
+.favIconDiv label{
+    position: absolute;
+    background-color: red;
+    color: #fff;
+    padding: 1px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    border-radius: 50%;
+
+    transform: translate(6px, -4px);
+}
+
+.searchBar{
+  display: flex;
+  align-items: center;
+  padding: 8px 5px;
+  width: 450px;
+  box-shadow: 0 0 3px gainsboro;
+  border-radius: 5px;
+  position: relative;
+}
+
+.searchBar input{
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 14.6px;
+  width: 100%;
+  padding-right: 50px;
+  color: rgb(59, 54, 54);
+}
+
+::placeholder {
+  color: rgb(163, 159, 159);
+  opacity: 1;
+}
+
+:-ms-input-placeholder { 
+  color: rgb(163, 159, 159);
+}
+
+::-ms-input-placeholder { 
+  color: rgb(163, 159, 159);
+}
+
+.searchIcon{
+  color: rgb(163, 159, 159);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftSearchIcon{
+  padding: 0 8px 0 5px;
+}
+
+.leftBackIcon{
+  display: none;
+  align-items: center;
+  padding: 0 8px 0 5px;
+}
+
+.rightSearchIcon{
+  cursor: pointer;
+  padding: 0 15px;
+  background-color: gainsboro;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.accountDiv{
+  display: flex;
+  align-items: center;
+}
+
+button{
+  padding: 5px 15px 6px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: blueviolet;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.fabIcon{
+  color: rgb(163, 159, 159);
+  display: flex;
+  align-items: center;
+}
+
+.mobileSearchIcon{
+  display: none;
+}
+
+.profile{
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  background-color: gainsboro;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile label{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 710px) {
+  .searchBar{
+    display: none;
+  }
+
+  .mobileSearchIcon{
+    display: flex;
+  }
+
+  .leftBackIcon{
+    display: flex;
+  }
+
+  .leftSearchIcon{
+    display: none;
+  }
+
+  .searchBar input{
+    font-size: 15px;
+  }
+
+  .favIconDiv {
+    margin: 0 15px 0 15px;
+  }
+}

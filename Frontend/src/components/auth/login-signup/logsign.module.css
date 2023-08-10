@@ -1,0 +1,68 @@
+.dialogHead{
+    padding: 25px 0 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.closeIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: gray;
+}
+
+h1{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.formDivs{
+    display: flex;
+    flex-direction: column;
+    margin: 18px 0;
+}
+
+.formDivs label{
+    font-size: 14px;
+}
+
+.errorMsg{
+    font-size: 13px;
+    color: red;
+    padding: 3px 0;
+}
+
+.inputs{
+    background-color: #fff;
+    color: rgb(49, 47, 47);
+    padding: 8px 8px;
+    border: 1px solid rgb(192, 190, 190);
+    border-radius: 3px;
+    outline: none;
+}
+
+.passwordDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.submitBtn{
+    width: 100%;
+    padding: 8px 0;
+    box-shadow: 0 2px 5px gray;
+    background: #ee5684;
+    font-weight: 600;
+}
+
+.label{
+    font-size: 12.8px;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.label .spanTxt{
+    text-decoration: underline;
+    cursor: pointer;
+}
