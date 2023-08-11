@@ -22,7 +22,8 @@ To run the News-Hub backend project on your local machine, follow these steps:
    - `DB_URL`: MongoDB URL. Example: `DB_URL=mongodb://127.0.0.1:27017/NewsHub`
    - `PORT`: Port number for the server. Example: `PORT=8080`
    - `JWT_SECRET_KEY`: Secret key for JWT authentication. Example: `JWT_SECRET_KEY=anything`
-   - `OTP_API`: API for sending OTP. You can use the provided API or console log the OTP. To log the OTP, modify the `sendOtp` method in `Backend/controller/userController.js` with this code: `console.log(otp)`
+   - `OTP_API`: API for sending OTP. You can use the provided API or console log the OTP. To log the OTP, modify the `sendOtp` method in `Backend/controller/userController.js` with this code: `console.log(otp
+   - FRONTEND_DOMAIN= "https://yourfrontenddomain.com"
    - `GNEWS_API`: Your GNews API key.
    - `NEWS_URL`: News URL with placeholders. Example: `NEWS_URL=https://gnews.io/api/v4/search?q={element}&lang=en&apikey=API_KEY`
 3. To start the server, run the following command:
