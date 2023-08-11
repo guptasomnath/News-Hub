@@ -16,7 +16,6 @@ import Catlist from './catlist/Catlistitem';
 function Categories() {
   
   const useEffectReRendring = useSelector((state) => state.rerender);
-  //const [catList, setCatList] = useState([]);
   const catagoryArray = useSelector((state) => state.catlist);
   const dispatch = useDispatch();
 
@@ -64,6 +63,8 @@ function Categories() {
           //i am calling the global catagory (not user selected catagory) from my server
           const catagorys = await axios.get(import.meta.env.VITE_BASE_URL + '/catagorys/' + cookies.get('userId') || "");
           let catagoryList = catagorys.data.response;
+
+          //if InterestScore is avilable or if InterestScore obj have some data then we will show the recommendation catagory
           if(catagorys.data.InterestScore){
              //will came an object
              cookies.set('recomendTopics', Object.keys(catagorys.data.InterestScore).join(' '));

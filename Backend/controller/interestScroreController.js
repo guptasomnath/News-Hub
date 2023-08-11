@@ -9,10 +9,11 @@ export const storeInterestScore = async (req, res) => {
 
     const user = await InterestScore.findOne({_userID : req.body.id});
     //if document is not exist create a new document
+
     if(!user) {
      const payload = {
         _userID : req.body.id,
-        interestsscore : new Map()
+        interestsscore : new Map().set(req.body.key, 1)
     } 
 
     const storeData = new InterestScore({
@@ -22,7 +23,7 @@ export const storeInterestScore = async (req, res) => {
     const dbRes = await storeData.save();
     return res.status(200).json({isSuccess : true, response : "New interest score document created" })
     }
-   
+
     const oldScore = user.interestsscore.get(req.body.key) || 0;
     user.interestsscore.set(req.body.key, oldScore + req.body.value);
     user.save();

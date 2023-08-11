@@ -76,7 +76,7 @@ export const sendOtp = async (req, res) => {
 
   const otp = Math.floor(1000 + Math.random() * 9000);
 
-  const otpApi = process.env.OTP_API;
+ const otpApi = process.env.OTP_API;
   const otpRes = await axios.get(
       `${otpApi}?toEmail=${req.body.gmail}&subject=OTP%20From%20Simple%20Login%20App&body=This%20is%20your%20OTP%20:-%20%20${otp}`
   );

@@ -93,12 +93,14 @@ function ShowNews() {
         //if user login the first get user interest list first then call news api
         //my server give me the news api
         const res = await axios(baseUrl + '/user/getuserinterest/' + cookie.get('userId'));
-        cookie.set('myInterestCatList', res.data.allResponse.interestedCatagorys.join(" OR "));
+        cookie.set('myInterestCatList', res.data.allResponse.interestedCatagorys.join(" "));
         getNews(res.data.response)
 
       }catch(err){
+
+        console.log(err)
   
-        if(!err.response){ //it will be internet error
+        if(!err.response){ //it will be network error
           failedToast(err.message);
           removeToast(1500)
           return;

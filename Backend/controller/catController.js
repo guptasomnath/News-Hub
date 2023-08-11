@@ -11,6 +11,6 @@ export const getCatList = async (req, res) => {
     return res.status(200).json({isSuccess : true, response : catList});
   }
 
-  res.status(200).json({isSuccess : true, response : catList.slice(0, 1).concat('Recommendation' ,catList.slice(1, catList.length)), InterestScore : dbRes.interestsscore});
+  res.status(200).json({isSuccess : true, response : dbRes.interestsscore.size == 0 ? catList : catList.slice(0, 1).concat('Recommendation' ,catList.slice(1, catList.length)), InterestScore : dbRes.interestsscore});
   
 }

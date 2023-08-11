@@ -26,11 +26,15 @@ const connectDb = async () => {
 connectDb();
 
 //middlewares
-app.use(cors(/*{
-    origin : process.env.FRONTEND_DOMAIN,
+const allowedOrigins = [
+    process.env.FRONTEND_DOMAIN,
+    process.env.FRONTEND_DOMAIN + '/'
+];
+app.use(cors({
+    origin : allowedOrigins,
     methods : 'GET,POST',
     allowedHeaders : 'Content-Type,Authorization'
-}*/));
+}));
 
 app.use(express.json());
 

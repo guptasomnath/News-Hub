@@ -12,6 +12,7 @@ import { setCompVisiablity } from '../../redux/compVisiablitySlice';
 import { setNewsList } from '../../redux/newsSlice';
 import { setToastState } from '../../redux/toastSlice';
 import { setReRender } from '../../redux/useEffectReRenderSlice';
+import { setNewsAvilable } from '../../redux/isNewsAvilable';
 
 function Header() {
   const dispatch = useDispatch();
@@ -124,6 +125,7 @@ function Header() {
 
       successToast('Successfully Logout');
       removeToast(1500, () => {
+        dispatch(setNewsAvilable(false));
          dispatch(setReRender({
           catagoryComp : Math.round(Math.random() * 100),
           showNewsComp : Math.round(Math.random() * 100),

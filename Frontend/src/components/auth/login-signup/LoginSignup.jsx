@@ -13,6 +13,7 @@ import { setCompVisiablity } from '../../../redux/compVisiablitySlice';
 import { setToastState } from '../../../redux/toastSlice';
 import { setReRender } from '../../../redux/useEffectReRenderSlice';
 import { setLoadingState } from '../../../redux/loadingSlice';
+import { setNewsAvilable } from '../../../redux/isNewsAvilable';
 
 function LoginSignup() {
   const dispatch = useDispatch();
@@ -157,6 +158,7 @@ function LoginSignup() {
                 authPopupVisiable : "none",
                 accountBtnVisiable : "none"
               }))
+              dispatch(setNewsAvilable(false));
               dispatch(setReRender({
                 catagoryComp : Math.round(Math.random() * 100),
                 showNewsComp : Math.round(Math.random() * 100)

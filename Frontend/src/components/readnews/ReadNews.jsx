@@ -29,14 +29,21 @@ function ReadNews() {
    //if user not loged in then don't run next line of code
     const findTopicKeyWord = findTopic();
     if(!cookies.get('userId') || findTopicKeyWord == "") return;
-
+    
     //send user reading habit topic
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const dbRes = await axios.post(baseUrl + '/interest/score/', {
-      id : cookies.get('userId'),
-      key : findTopicKeyWord,
-      value : 1
-    });
+    try {
+
+      const dbRes = await axios.post(baseUrl + '/interest/score/', {
+        id : cookies.get('userId'),
+        key : findTopicKeyWord,
+        value : 1
+      });
+      
+    } catch (error) {
+      
+    }
+    
   }
 
   function findTopic(){

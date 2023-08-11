@@ -11,6 +11,7 @@ import cookies from 'js-cookie';
 import { setCompVisiablity } from '../../redux/compVisiablitySlice';
 import { setToastState } from '../../redux/toastSlice';
 import { setReRender } from '../../redux/useEffectReRenderSlice';
+import { setNewsAvilable} from '../../redux/isNewsAvilable';
 
 //import components
 import logSignCss from '../auth/login-signup/logsign.module.css';
@@ -73,6 +74,7 @@ function ChooseCat() {
       accountBtnVisiable : "none"
     }))
 
+    dispatch(setNewsAvilable(false));
     //get the user picked interest and show news accoding to it
     dispatch(setReRender({
       catagoryComp : Math.round(Math.random() * 100),
@@ -101,6 +103,7 @@ function ChooseCat() {
         removeToast(1500, () => {
           closeDialog();
         });
+
         return;
       }
 
