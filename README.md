@@ -7,7 +7,7 @@ To get started with the News-Hub frontend project built using the Vite framework
 1. Create a `.env` file in the root directory.
 2. Inside the `.env` file, define two variables:
    - `VITE_NEWS_API_URL`: Set this variable to the GNews API URL. Example: `VITE_NEWS_API_URL=https://gnews.io/api/v4/search?q={example}&lang=en&apikey=YOUR_API_KEY`
-   - `VITE_BASE_URL`: Set this variable to the backend URL. Example: `VITE_BASE_URL=http://localhost:8080`
+   - `VITE_BASE_URL`: Set this variable to the backend URL. Example: `VITE_BASE_URL=http://yourbackendapi.com`
 3. Run the following command to start the development server:
    ```
    npm run dev
@@ -30,3 +30,7 @@ To run the News-Hub backend project on your local machine, follow these steps:
    ```
    npm run dev
    ```
+
+**Demo Links**
+Frontend : - https://melodic-queijadas-0d93d0.netlify.app/
+Backend : - https://news-hub-ivory.vercel.app/
