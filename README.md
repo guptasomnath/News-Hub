@@ -36,5 +36,5 @@ Frontend : - https://melodic-queijadas-0d93d0.netlify.app <br />
 Backend Api: - https://news-hub-ivory.vercel.app
 
 **Test Account** <br />
-Gmail : - somnathgupta112@gmail.com, <br />
+Gmail : - tester@gmail.com, <br />
 Password : - 1234567
