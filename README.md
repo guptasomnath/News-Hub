@@ -31,6 +31,6 @@ To run the News-Hub backend project on your local machine, follow these steps:
    npm run dev
    ```
 
-**Demo Links**
+**Demo Links** <br />
 Frontend : - https://melodic-queijadas-0d93d0.netlify.app <br />
 Backend Api: - https://news-hub-ivory.vercel.app
