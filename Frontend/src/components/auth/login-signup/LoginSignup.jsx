@@ -12,6 +12,7 @@ import cookies from 'js-cookie';
 import { setCompVisiablity } from '../../../redux/compVisiablitySlice';
 import { setToastState } from '../../../redux/toastSlice';
 import { setReRender } from '../../../redux/useEffectReRenderSlice';
+import { setLoadingState } from '../../../redux/loadingSlice';
 
 function LoginSignup() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function LoginSignup() {
   };
 
   const failedToast = (errMsg) => {
+    loading(false);
             //shwo failed toast
             dispatch(
               setToastState({
@@ -49,6 +51,7 @@ function LoginSignup() {
   }
 
   const successToast = (msg) => {
+    loading(false);
     //shwo failed toast
     dispatch(
       setToastState({
@@ -58,6 +61,10 @@ function LoginSignup() {
         subtitle: msg
       })
     ); 
+  }
+
+  const loading = (isLoading) => {
+    dispatch(setLoadingState(isLoading));
   }
 
   // Define the validation schema using Yup
@@ -101,7 +108,10 @@ function LoginSignup() {
         gmail : userGmail
       });
 
-      if(!res.data.isSuccess) return failedToast(res.data.response);
+      if(!res.data.isSuccess) {
+        failedToast(res.data.response);
+        return;
+      }
 
     } catch (error) {
 
@@ -120,7 +130,7 @@ function LoginSignup() {
 
         try {
 
-
+           loading(true);
            const res = await axios.post(baseUrl + endPoint, {
              gmail : values.email,
              password : values.password
@@ -151,7 +161,6 @@ function LoginSignup() {
                 catagoryComp : Math.round(Math.random() * 100),
                 showNewsComp : Math.round(Math.random() * 100)
               }));
-              //location.reload();
              });
              return;
            }

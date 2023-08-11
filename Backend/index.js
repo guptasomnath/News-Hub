@@ -26,9 +26,14 @@ const connectDb = async () => {
 connectDb();
 
 //middlewares
-app.use(cors());
+app.use(cors(/*{
+    origin : process.env.FRONTEND_DOMAIN,
+    methods : 'GET,POST',
+    allowedHeaders : 'Content-Type,Authorization'
+}*/));
 
 app.use(express.json());
+
 app.use('/user', userRoute);
 app.use('/catagorys', catagoryRoute);
 app.use('/interest', interestScoreRoute);

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import saveNCss from './savenews.module.css';
-
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import cookies from 'js-cookie';
+import saveNCss from './savenews.module.css';
 
 //import components
 import NewsList from '../shownews/newslist/NewsList';
 
 //redux actions
 import { setToastState } from '../../redux/toastSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { setLoadingState } from '../../redux/loadingSlice';
+
 
 function SaveNews() {
   const [saveNews, setSaveNews] = useState([]);
@@ -35,6 +36,7 @@ function SaveNews() {
 
   const failedToast = (errMsg) => {
     //shwo failed toast
+    loading(false)
     dispatch(
       setToastState({
         isVisiable: true,
@@ -45,23 +47,17 @@ function SaveNews() {
     );
   };
 
-  const successToast = (msg) => {
-    //shwo failed toast
-    dispatch(
-      setToastState({
-        isVisiable: true,
-        type: "Success",
-        title: "Success",
-        subtitle: msg,
-      })
-    );
-  };
+
+  const loading = (isLoading) => {
+    dispatch(setLoadingState(isLoading));
+  }
 
   useEffect(() => {
 
     const call = async () => {
     try {
-
+     
+    loading(true);
      const res = await axios.post(baseUrl + '/user/exportnews', {
       id : cookies.get('userId')
      });
@@ -69,8 +65,11 @@ function SaveNews() {
      setSaveNews(res.data.response.savedNews);
      if(Object.entries(res.data.response.savedNews).length <= 0){
       failedToast("You don't have any saved news");
-      removeToast(2000)
+      removeToast(1800)
+      return;
      }
+
+     loading(false);
       
     } catch (error) {
     

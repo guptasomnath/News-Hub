@@ -49,6 +49,7 @@ function Categories() {
   };
 
 
+
   const [controller, setController] = useState({
     position : catagoryArray[catagoryClickedName] || catagoryClickPosition,
     bkColor: "gainsboro",

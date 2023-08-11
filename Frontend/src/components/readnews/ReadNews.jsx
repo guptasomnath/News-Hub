@@ -87,17 +87,7 @@ function ReadNews() {
         }}></div>
 
         <p className={readNewsCss.articalStoryText}>{readingData.content}</p>
-      </div>
-      <div style={{display : "none"}} className={readNewsCss.similarNewsList}>
-        <h2>Similar News</h2>
-        <NewsList />
-        <NewsList />
-        <NewsList />
-        <NewsList />
-        <NewsList />
-        <NewsList />
-      </div>
-      
+      </div>  
     </div>
   );
 }

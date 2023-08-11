@@ -8,6 +8,7 @@ export let catagoryClickPosition = 0;
 export let catagoryClickedName = "";
 
 import { setToastState } from '../../../redux/toastSlice';
+import { setLoadingState } from '../../../redux/loadingSlice';
 
 function Catlist({catName, index, setController, controller}) {
 
@@ -34,6 +35,7 @@ function Catlist({catName, index, setController, controller}) {
 
   const failedToast = (errMsg) => {
     //shwo failed toast
+    loading(false);
     dispatch(
       setToastState({
         isVisiable: true,
@@ -43,6 +45,10 @@ function Catlist({catName, index, setController, controller}) {
       })
     );
   };
+
+  const loading = (isLoading) => {
+    dispatch(setLoadingState(isLoading));
+  }
   
   //when ay catagory will click
   const onCatListClicked = async (indx) => {
@@ -62,8 +68,9 @@ function Catlist({catName, index, setController, controller}) {
     }
 
   try {
-    
+    loading(true);
     const newsData = await axios.get(getReqUrl);
+    loading(false);
     dispatch(setNewsList(newsData.data.articles));
 
   } catch (error) {

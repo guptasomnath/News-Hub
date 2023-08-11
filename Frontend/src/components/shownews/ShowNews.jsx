@@ -8,6 +8,7 @@ import { setNewsAvilable } from '../../redux/isNewsAvilable';
 import { setNewsList } from '../../redux/newsSlice';
 import { setToastState } from '../../redux/toastSlice';
 import { setCompVisiablity } from '../../redux/compVisiablitySlice';
+import { setLoadingState } from '../../redux/loadingSlice';
 
 //import components
 import NewsList from './newslist/NewsList';
@@ -41,6 +42,7 @@ function ShowNews() {
 
   const failedToast = (errMsg) => {
     //shwo failed toast
+    loading(false);
     dispatch(
       setToastState({
         isVisiable: true,
@@ -51,12 +53,27 @@ function ShowNews() {
     );
   };
 
+  const loading = (isLoading) => {
+    dispatch(setLoadingState(isLoading));
+  }
+
   useEffect(()=>{
     
     const getNews = async (newsApi) => {
-      const newsData = await axios(newsApi);
-      dispatch(setNewsAvilable(true));
-      dispatch(setNewsList(newsData.data.articles));
+      try {
+
+        const newsData = await axios(newsApi);
+        dispatch(setNewsAvilable(true));
+        loading(false);
+        dispatch(setNewsList(newsData.data.articles));
+        
+      } catch (error) {
+
+        failedToast(!error.response? error.message : error.response.data.response);
+        removeToast(1500);
+        
+      }
+      
     }
 
     const getInterestList = async () => {
@@ -67,7 +84,8 @@ function ShowNews() {
 
       try{
         
-        //if user not login then show him any(latest) topic news
+        //if user not login then show him any(latest) topic 
+        loading(true);
         if(!cookie.get('userId')){
           getNews(import.meta.env.VITE_NEWS_API_URL.replace('{example}', 'latest'));
           return;

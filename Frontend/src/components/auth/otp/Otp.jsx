@@ -12,6 +12,7 @@ import cookies from 'js-cookie';
 import { setCompVisiablity } from "../../../redux/compVisiablitySlice";
 import { setToastState } from '../../../redux/toastSlice';
 import { setReRender } from "../../../redux/useEffectReRenderSlice";
+import { setLoadingState } from '../../../redux/loadingSlice';
 
 
 function Otp() {
@@ -37,6 +38,7 @@ function Otp() {
   };
 
   const failedToast = (errMsg) => {
+    loading(false)
           //shwo failed toast
           dispatch(
             setToastState({
@@ -50,6 +52,7 @@ function Otp() {
 
   const successToast = (msg) => {
   //shwo failed toast
+  loading(false)
   dispatch(
     setToastState({
       isVisiable: true,
@@ -58,6 +61,10 @@ function Otp() {
       subtitle: msg
     })
   ); 
+  }
+
+  const loading = (isLoading) => {
+    dispatch(setLoadingState(isLoading));
   }
 
   // Define the validation schema using Yup
@@ -91,10 +98,11 @@ function Otp() {
   }
 
     // Handle form submission
-    const onSubmit = async (values) => {
+  const onSubmit = async (values) => {
       //now i need to verify the otp
       try {
-
+        
+        loading(true);
         const res = await axios.post(baseUrl + '/user/verifyotp', {
           //id : cookies.get('userId'),
           gmail : cookies.get('userGmail'),
@@ -120,7 +128,7 @@ function Otp() {
 
       removeToast(1500);
 
-    };
+  };
 
 
   return (

@@ -47,20 +47,6 @@
     background-position: center;
 }
 
-.similarNewsList{
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-}
-
-.similarNewsList h2{
-    font-size: 20px;
-    padding-bottom: 8px;
-    color: rgb(87, 82, 82);
-}
-
 .noDataDiv{
     width: 100%;
     padding: 25px 0;
@@ -96,10 +82,6 @@
     .imageView{
         width: 100%;
         padding-top: calc(9/16 * 100%);
-    }
-
-    .similarNewsList{
-        display: none;
     }
     
 }
