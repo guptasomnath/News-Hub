@@ -34,3 +34,7 @@ To run the News-Hub backend project on your local machine, follow these steps:
 **Demo Links** <br />
 Frontend : - https://melodic-queijadas-0d93d0.netlify.app <br />
 Backend Api: - https://news-hub-ivory.vercel.app
+
+**Test Account** <br />
+Gmail : - somnathgupta112@gmail.com, <br />
+Password : - 1234567
